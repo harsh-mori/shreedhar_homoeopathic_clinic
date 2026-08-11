@@ -5,6 +5,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   title: "Contact",
   description: `Contact ${site.name} in Rajkot — call ${site.phone}, WhatsApp, or visit us at ${site.address.line1}.`,
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

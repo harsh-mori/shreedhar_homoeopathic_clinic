@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { ArrowRight, Stethoscope } from "lucide-react";
-import { diseases, diseasesPage } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { Stethoscope } from "lucide-react";
+import { diseasesPage } from "@/data/site";
 import { Container } from "@/components/ui/Container";
+import { DiseaseSearch } from "@/components/sections/DiseaseSearch";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export function DiseasesList() {
@@ -25,57 +24,9 @@ export function DiseasesList() {
         </Container>
       </section>
 
-      {/* ── Disease grid ── */}
+      {/* ── Disease search ── */}
       <section className="border-b border-grey-200/70 bg-primaryLight">
-        <Container className="py-16 lg:py-24">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {diseases.map((disease, i) => {
-              const featured = i % 3 === 1;
-              const excerpt = disease.examples ?? disease.about;
-              return (
-                <Link
-                  key={disease.slug}
-                  href={`/diseases/${disease.slug}`}
-                  className={cn(
-                    "animate-fade-up group flex flex-col rounded-2xl border p-6 transition-colors",
-                    featured
-                      ? "border-secondary-700 bg-secondary-700"
-                      : "border-grey-200/70 bg-surface hover:border-secondary-200 hover:bg-secondary-50"
-                  )}
-                >
-                  <div className="flex items-center justify-between">
-                    <span
-                      className={cn(
-                        "flex size-9 items-center justify-center rounded-lg text-xs font-bold",
-                        featured ? "bg-white/10 text-secondary-200" : "bg-secondary-100 text-secondary-800"
-                      )}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <ArrowRight
-                      className={cn(
-                        "size-4 transition-transform group-hover:translate-x-1",
-                        featured ? "text-secondary-200" : "text-grey-400"
-                      )}
-                      aria-hidden
-                    />
-                  </div>
-                  <h2 className={cn("mt-5 text-lg font-bold leading-snug", featured ? "text-white" : "text-black")}>
-                    {disease.name}
-                  </h2>
-                  <p
-                    className={cn(
-                      "mt-2 line-clamp-2 text-sm leading-relaxed",
-                      featured ? "text-white/80" : "text-grey-500"
-                    )}
-                  >
-                    {excerpt}
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
-        </Container>
+        <DiseaseSearch />
       </section>
 
       {/* ── CTA band ── */}

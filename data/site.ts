@@ -5,6 +5,7 @@
  *  Every piece of text/content on the site lives here.
  *  Edit this file to update the website — no code changes needed.
  *  Replace the placeholder values with real clinic data.
+ *  SEO: site.url is the live Vercel domain (shreedhar-homoeopathic-clinic.vercel.app).
  * ─────────────────────────────────────────────────────────────
  */
 
@@ -63,7 +64,20 @@ export const site = {
     experience: "7+ years of practice",
   },
   description:
-    "Trusted homoeopathic care for the whole family. Personalised treatment rooted in classical homoeopathy.",
+    "Shreedhar Homoeopathic Clinic in Rajkot, Gujarat — classical homoeopathy by Dr. Sumant Zankat (B.H.M.S, M.D). Personalised, safe and gentle treatment for the whole family, addressing the root cause of illness.",
+  url: "https://shreedhar-homoeopathic-clinic.vercel.app",
+  keywords: [
+    "homoeopathy",
+    "homeopathy",
+    "homoeopathic clinic",
+    "homoeopathic doctor Rajkot",
+    "Dr. Sumant Zankat",
+    "classical homoeopathy",
+    "homeopathic treatment Rajkot",
+    "homoeopathic physician Gujarat",
+    "chronic disease homoeopathy",
+    "skin disease homoeopathy Rajkot",
+  ],
   openingDate: "19.04.2026",
   phone: "+91 70435 44213",
   phoneHref: "tel:+917043544213",
@@ -582,6 +596,13 @@ export const diseasesPage = {
   prevLabel: "Previous",
   nextLabel: "Next",
   backLabel: "All Diseases",
+  searchLabel: "Search diseases, symptoms or keywords",
+  searchPlaceholder: "Search diseases, symptoms, keywords…",
+  conditionSingular: "condition",
+  conditionPlural: "conditions",
+  noResultsTitle: "No matching conditions found",
+  noResultsText:
+    "Try a different keyword — for example a symptom, body part, or disease name. You can also contact the clinic directly for guidance.",
 } as const;
 
 export const testimonials: Testimonial[] = [

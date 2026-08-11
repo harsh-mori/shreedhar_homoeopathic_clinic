@@ -3,8 +3,9 @@ import { Achievements } from "@/components/sections/Achievements";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Achievements",
-  description: `Research, surveys and publications by ${site.doctor.name} at ${site.name}.`,
+  title: "Achievements & Publications",
+  description: `Research, publications and case studies by ${site.doctor.name} at ${site.name}, Rajkot — including papers in homoeopathic journals and before-after treatment results.`,
+  alternates: { canonical: "/achievements" },
 };
 
 export default function AchievementsPage() {
