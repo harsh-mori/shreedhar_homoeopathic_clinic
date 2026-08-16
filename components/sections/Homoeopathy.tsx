@@ -5,10 +5,10 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const factIcons = {
-  Founded: History,
-  Founder: UserRound,
+  "Establishment of homoeopathy.": History,
+  "Founder of homoeopathy": UserRound,
   Principle: ScrollText,
-  Practice: FlaskConical,
+  "Over 200 years of practice.": FlaskConical,
 } as const;
 
 const featuredFact = "Principle";

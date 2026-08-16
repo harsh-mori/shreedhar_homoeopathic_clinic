@@ -663,10 +663,10 @@ export const aboutHomoeopathy = {
   ],
   conclusion: "Homoeopathy advocates for rapid, gentle, and enduring restoration of health.",
   facts: [
-    { label: "Founded", value: "1795" },
-    { label: "Founder", value: "Dr. Samuel Hahnemann" },
+    { label: "Establishment of homoeopathy.", value: "1795" },
+    { label: "Founder of homoeopathy", value: "Dr. Samuel Hahnemann" },
     { label: "Principle", value: "Similia simillibus curantur" },
-    { label: "Practice", value: "200+ years" },
+    { label: "Over 200 years of practice.", value: "200+ years" },
   ],
 } as const;
 

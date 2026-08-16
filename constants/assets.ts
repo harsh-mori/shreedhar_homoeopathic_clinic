@@ -8,7 +8,7 @@
  */
 
 import logo from "../assets/logo/logo.png";
-import doctorImage from "../assets/logo/doctor_image.png";
+import doctorImage from "../assets/logo/doctor_image.jpeg";
 import alopeciaAreata from "../assets/Diseases/alopecia_areata.jpeg";
 import burnInjury from "../assets/Diseases/burn_injury.jpeg";
 import desease1 from "../assets/Diseases/desease_1.jpeg";
@@ -25,8 +25,8 @@ export const assets = {
   doctorImage: {
     src: doctorImage,
     alt: "Doctor at Shreedhar Homoeopathic Clinic",
-    width: 289,
-    height: 355,
+    width: 1178,
+    height: 1600,
   },
 } as const;
 
