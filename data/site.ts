@@ -55,7 +55,7 @@ export type NavLink = {
 export const site = {
   name: "Shreedhar Homoeopathic Clinic",
   shortName: "Shreedhar Clinic",
-  tagline: "जीवेत शरदः शतम्",
+  tagline: "जीवेम शरदः शतम्",
   doctor: {
     name: "Dr. Sumant Zankat",
     title: "B.H.M.S, M.D — Homoeopathic Physician",
