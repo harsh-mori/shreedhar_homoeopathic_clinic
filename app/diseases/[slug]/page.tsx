@@ -15,11 +15,23 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const disease = diseases.find((d) => d.slug === slug);
-  if (!disease) return { title: "Disease Not Found" };
+  if (!disease)
+    return { title: "Disease Not Found | Shreedhar Homoeopathic Clinic" };
   return {
-    title: disease.name,
-    description: `${disease.name} — causes, common symptoms and how homoeopathic treatment at ${site.name} can help. ${disease.about}`,
+    title: `${disease.name} — Homeopathic Treatment | ${site.name}`,
+    description: `${disease.name} — causes, common symptoms and how classical homoeopathic treatment at ${site.name}, Rajkot can help. Dr. Sumant Zankat offers personalised, natural treatment. ${disease.about}`,
+    keywords: [
+      `${disease.name} treatment homeopathy`,
+      `${disease.name} homoeopathic treatment Rajkot`,
+      `homeopathy for ${disease.name.toLowerCase()}`,
+      `symptoms of ${disease.name.toLowerCase()}`,
+      `natural treatment ${disease.name.toLowerCase()}`,
+    ],
     alternates: { canonical: `/diseases/${disease.slug}` },
+    openGraph: {
+      title: `${disease.name} — Homeopathic Treatment | ${site.name}`,
+      description: `Learn about ${disease.name} — causes, symptoms and homoeopathic treatment at ${site.name}, Rajkot.`,
+    },
   };
 }
 
