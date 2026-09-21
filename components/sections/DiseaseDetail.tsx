@@ -64,7 +64,7 @@ export function DiseaseDetail({ disease, index }: DiseaseDetailProps) {
       </section>
 
       {/* ── Content ── */}
-      <section className="border-b border-grey-200/70 bg-primaryLight">
+      <section className="border-b border-grey-200/70 bg-primary-light">
         <Container className="pt-0 pb-12 lg:pb-16">
           <div className="max-w-3xl space-y-6">
             {/* About */}

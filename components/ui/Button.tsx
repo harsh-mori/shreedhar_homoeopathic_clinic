@@ -12,7 +12,7 @@ const variants: Record<Variant, string> = {
   // Green — main call to action
   primary: "bg-secondary-600 text-white hover:bg-secondary-700",
   // Cream — used on dark surfaces
-  secondary: "bg-primary text-black hover:bg-primaryLight",
+  secondary: "bg-primary text-black hover:bg-primary-light",
   outline: "border border-secondary-600 text-secondary-700 hover:bg-secondary-50",
   ghost: "text-secondary-700 hover:bg-secondary-50",
 };

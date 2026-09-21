@@ -10,7 +10,7 @@ export function ContactSection() {
   return (
     <>
       {/* ── Header ── */}
-      <section className="border-b border-grey-200/70 bg-primaryLight">
+      <section className="border-b border-grey-200/70 bg-primary-light">
         <Container className="py-12 lg:py-16">
           <p className="animate-fade-up mb-3 inline-flex items-center gap-2 rounded-full border border-secondary-200 bg-surface px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-secondary-700">
             <Sparkles className="size-3.5" aria-hidden />
@@ -26,7 +26,7 @@ export function ContactSection() {
       </section>
 
       {/* ── Colored panel: info + form ── */}
-      <section className="bg-primaryLight">
+      <section className="bg-primary-light">
         <Container className="py-12 lg:py-16">
           <div className="animate-fade-up grid overflow-hidden rounded-3xl border border-grey-200/70 lg:grid-cols-5">
             {/* Dark green info panel */}
@@ -120,7 +120,7 @@ export function ContactSection() {
             </div>
 
             {/* Cream form panel */}
-            <div className="bg-primaryLight p-8 lg:col-span-3 lg:p-10">
+            <div className="bg-primary-light p-8 lg:col-span-3 lg:p-10">
               <ContactForm />
             </div>
           </div>
@@ -128,7 +128,7 @@ export function ContactSection() {
       </section>
 
       {/* ── Map ── */}
-      <section className="border-t border-grey-200/70 bg-primaryLight">
+      <section className="border-t border-grey-200/70 bg-primary-light">
         <Container className="py-12 lg:py-16">
           <div className="animate-fade-up overflow-hidden rounded-3xl border border-grey-200/70">
             <div className="flex items-center justify-between gap-4 border-b border-grey-200/70 bg-surface px-8 py-4">

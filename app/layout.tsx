@@ -74,7 +74,8 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": ["MedicalBusiness", "MedicalClinic", "LocalBusiness"],
+  "@id": `${site.url}/#clinic`,
   name: site.name,
   alternateName: "Shreedhar Clinic",
   description: site.description,
@@ -110,10 +111,29 @@ const jsonLd = {
   },
   physician: {
     "@type": "Physician",
+    "@id": `${site.url}/#physician`,
     name: site.doctor.name,
     medicalSpecialty: "Homeopathic",
-    description: `Dr. ${site.doctor.name} is a trusted homoeopathic physician with ${site.doctor.experience}, specialising in classical homoeopathy for chronic diseases, skin problems, diabetes, allergies and whole family care.`,
+    telephone: site.phone,
+    url: `${site.url}/about`,
+    image: `${site.url}/logo.png`,
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        name: "B.H.M.S — Bachelor of Homoeopathic Medicine & Surgery",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        name: "M.D (Homoeopathy) — Repertory",
+      },
+    ],
+    knowsLanguage: ["en", "gu", "hi"],
+    description: `${site.doctor.name} is a trusted homoeopathic physician with ${site.doctor.experience}, specialising in classical homoeopathy for chronic diseases, skin problems, diabetes, allergies and whole family care.`,
   },
+  currenciesAccepted: "INR",
+  knowsLanguage: ["en", "gu", "hi"],
   medicalSpecialty: "Homeopathic",
   availableService: [
     {

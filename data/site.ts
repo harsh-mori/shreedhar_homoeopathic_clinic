@@ -37,9 +37,27 @@ export type DiseaseSymptomGroup = {
   symptoms: string[];
 };
 
+/** Body-system grouping used to filter & organise the diseases page. */
+export type DiseaseCategoryId =
+  | "skin-hair"
+  | "internal"
+  | "bones-nerves"
+  | "women-children"
+  | "ent-eye"
+  | "mind"
+  | "serious";
+
+export type DiseaseCategory = {
+  id: DiseaseCategoryId;
+  label: string;
+  /** Shown under the group heading on the diseases page. */
+  description: string;
+};
+
 export type DiseaseInfo = {
   slug: string;
   name: string;
+  category: DiseaseCategoryId;
   examples?: string;
   about: string;
   groups?: DiseaseSymptomGroup[];
@@ -51,6 +69,19 @@ export type NavLink = {
   label: string;
   href: string;
 };
+
+/**
+ * Canonical origin for the site (no trailing slash).
+ *
+ * IMPORTANT FOR SEO: a free `*.vercel.app` subdomain is crawled and trusted
+ * far less than a real domain, and Google may show the host's name instead of
+ * the page title. When the clinic's own domain is ready, set
+ * NEXT_PUBLIC_SITE_URL (or edit the fallback below) — every canonical URL,
+ * sitemap entry, JSON-LD id and OG tag follows from this one value.
+ */
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+  "https://shreedhar-homoeopathic-clinic.vercel.app";
 
 export const site = {
   name: "Shreedhar Homoeopathic Clinic",
@@ -65,7 +96,7 @@ export const site = {
   },
   description:
     "Shreedhar Homoeopathic Clinic — best homoeopathic clinic in Rajkot, Gujarat. Dr. Sumant Zankat (B.H.M.S, M.D) offers personalised classical homoeopathy for skin diseases, diabetes, allergies, chronic illnesses, women's health & whole family care. Book your consultation today.",
-  url: "https://shreedhar-homoeopathic-clinic.vercel.app",
+  url: SITE_URL,
   keywords: [
     "homoeopathy",
     "homeopathy",
@@ -249,9 +280,52 @@ export const treatmentAreas: TreatmentArea[] = [
   },
 ];
 
+/**
+ * Category order here drives the order of groups & filter chips
+ * on the diseases page.
+ */
+export const diseaseCategories: DiseaseCategory[] = [
+  {
+    id: "skin-hair",
+    label: "Skin & Hair",
+    description: "Long-standing skin and scalp conditions treated from the root.",
+  },
+  {
+    id: "internal",
+    label: "Internal Medicine",
+    description: "Digestive, metabolic, respiratory and other internal complaints.",
+  },
+  {
+    id: "bones-nerves",
+    label: "Bones & Nerves",
+    description: "Joint, spine and nervous-system problems.",
+  },
+  {
+    id: "women-children",
+    label: "Women & Children",
+    description: "Hormonal, reproductive and childhood health concerns.",
+  },
+  {
+    id: "ent-eye",
+    label: "Ear, Nose & Throat",
+    description: "ENT complaints including hearing and sinus problems.",
+  },
+  {
+    id: "mind",
+    label: "Mind & Sleep",
+    description: "Mood, stress and sleep-related conditions.",
+  },
+  {
+    id: "serious",
+    label: "Serious & Complex",
+    description: "Complex conditions needing careful, supportive care.",
+  },
+];
+
 export const diseases: DiseaseInfo[] = [
   {
     slug: "skin-diseases",
+    category: "skin-hair",
     name: "Skin Diseases",
     examples: "Ringworm, Psoriasis, Eczema, Vitiligo and other common skin disorders",
     about:
@@ -266,6 +340,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "digestive-disorders",
+    category: "internal",
     name: "Gas, Acidity & Digestive Disorders",
     about:
       "Digestive disorders affect the stomach or intestines and can include acid reflux, indigestion, constipation and excessive gas.",
@@ -279,6 +354,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "bone-joint-problems",
+    category: "bones-nerves",
     name: "Knee, Back & Bone/Joint Problems",
     about:
       "Musculoskeletal problems can involve the joints, bones, muscles, ligaments or spine. Arthritis, injuries and age-related changes are common causes.",
@@ -292,6 +368,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "metabolic-chronic-diseases",
+    category: "internal",
     name: "Diabetes, High Blood Pressure, Thyroid Disorders & Obesity",
     about:
       "These are common metabolic or hormonal conditions. They can develop gradually and sometimes cause few noticeable symptoms initially.",
@@ -316,6 +393,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "asthma-allergies",
+    category: "internal",
     name: "Asthma & Allergies",
     about:
       "Asthma affects the airways and can cause episodes of breathing difficulty. Allergies occur when the immune system reacts excessively to substances such as dust, pollen, foods or certain medications.",
@@ -329,6 +407,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "mental-health",
+    category: "mind",
     name: "Depression, Anxiety/Stress & Sleep Problems",
     about:
       "Mental-health conditions can affect mood, thinking, sleep, energy and everyday functioning. Depression and anxiety are different conditions but can occur together.",
@@ -342,6 +421,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "hair-loss-alopecia",
+    category: "skin-hair",
     name: "Hair Loss & Alopecia",
     about:
       "Hair loss can be temporary or long-lasting and may result from genetics, hormonal changes, nutritional deficiencies, autoimmune conditions, stress or other medical causes.",
@@ -355,6 +435,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "ent-disorders",
+    category: "ent-eye",
     name: "Ear, Nose & Throat (ENT) Disorders",
     about:
       "ENT conditions affect the ears, nose, throat and related structures. They include infections, allergies, sinus problems and other disorders.",
@@ -368,6 +449,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "childhood-disorders",
+    category: "women-children",
     name: "Childhood Disorders",
     examples: "Developmental/growth problems, stye, tonsil problems and other childhood conditions",
     about:
@@ -382,6 +464,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "women-health",
+    category: "women-children",
     name: "Women's Health Problems",
     about:
       "These conditions can involve hormonal, reproductive or pregnancy-related problems. PCOS/PCOD, for example, can affect ovulation and menstrual cycles.",
@@ -396,6 +479,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "anemia-low-blood-count",
+    category: "internal",
     name: "Anemia / Low Blood Count",
     about:
       "Anemia occurs when the blood does not have enough healthy red blood cells or hemoglobin to carry adequate oxygen to the body's tissues.",
@@ -409,6 +493,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "nervous-system-disorders",
+    category: "bones-nerves",
     name: "Sciatica, Paralysis & Nervous-System Disorders",
     about:
       "Nervous-system disorders can affect the brain, spinal cord or peripheral nerves. Sciatica specifically involves irritation or compression of the sciatic nerve.",
@@ -423,6 +508,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "worms-appendicitis-hernia",
+    category: "internal",
     name: "Worm Infections, Appendicitis & Hernia",
     about: "These are three different conditions.",
     groups: [
@@ -462,6 +548,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "varicose-vomiting-ulcers",
+    category: "internal",
     name: "Varicose Veins, Frequent Vomiting & Mouth Ulcers",
     about: "These are also different conditions.",
     groups: [
@@ -496,6 +583,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "prostate-piles",
+    category: "internal",
     name: "Prostate Problems & Hemorrhoids (Piles)",
     about: "These are two different conditions.",
     groups: [
@@ -525,6 +613,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "kidney-gallstones",
+    category: "internal",
     name: "Kidney Stones, Gallstones & Kidney/Liver Disorders",
     about: "These are also different conditions.",
     groups: [
@@ -565,6 +654,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "ear-discharge-hearing-loss",
+    category: "ent-eye",
     name: "Ear Discharge & Hearing Loss",
     about:
       "Ear discharge may occur because of an ear infection, perforated eardrum or other ear condition. Hearing loss can be temporary or permanent.",
@@ -579,6 +669,7 @@ export const diseases: DiseaseInfo[] = [
   },
   {
     slug: "cancer-complex-diseases",
+    category: "serious",
     name: "Cancer & Other Serious/Complex Diseases",
     about:
       "Cancer is a broad group of diseases in which abnormal cells grow uncontrollably and may invade surrounding tissues or spread to other parts of the body. Symptoms depend heavily on the type and stage of cancer.",
@@ -613,6 +704,14 @@ export const diseasesPage = {
   noResultsTitle: "No matching conditions found",
   noResultsText:
     "Try a different keyword — for example a symptom, body part, or disease name. You can also contact the clinic directly for guidance.",
+  allFilterLabel: "All",
+  filterLabel: "Filter by area of treatment",
+  clearLabel: "Clear filters",
+  symptomsCountLabel: "symptoms listed",
+  helpTitle: "Not sure which condition matches your symptoms?",
+  helpText:
+    "You do not need a diagnosis to book. Describe what you are experiencing and Dr. Sumant Zankat will guide you.",
+  helpCta: "Talk to the doctor",
 } as const;
 
 export const testimonials: Testimonial[] = [

@@ -3,8 +3,8 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: `Book Consultation — Contact ${site.name} Rajkot`,
-  description: `Book your homoeopathic consultation at ${site.name}, Rajkot. Call ${site.phone}, WhatsApp or visit us at ${site.address.line1}. Dr. Sumant Zankat — personalised classical homoeopathy treatment for all ages.`,
+  title: `Book a Consultation in Rajkot`,
+  description: `Book a homoeopathic consultation with Dr. Sumant Zankat in Rajkot. Call ${site.phone}, WhatsApp, or visit us at ${site.address.line1}.`,
   keywords: [
     "book homeopathy consultation Rajkot",
     "homoeopathic clinic contact Rajkot",

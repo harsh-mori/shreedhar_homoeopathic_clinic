@@ -24,9 +24,12 @@ export function Hero() {
       />
 
       <Container className="relative">
-        <div className="grid items-center gap-14 py-16 lg:grid-cols-2 lg:gap-8 lg:py-24">
+        <div className="grid items-center gap-10 py-12 sm:gap-14 sm:py-16 lg:grid-cols-2 lg:gap-8 lg:py-24">
           {/* ── Copy ── */}
-          <div>
+          {/* Mobile order: heading & text (1) → doctor photo (2) → CTAs (3).
+              From lg up the grid is two columns again, so the copy and its
+              CTAs sit together on the left and the photo moves right. */}
+          <div className="order-1 lg:order-1 lg:self-center">
             <p
               className="animate-fade-up mb-5 inline-flex items-center gap-2 rounded-full border border-secondary-200 bg-surface px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-secondary-700"
               style={{ animationDelay: "0ms" }}
@@ -51,23 +54,27 @@ export function Hero() {
               {hero.subtitle}
             </p>
 
+            {/* CTAs render here on desktop only — on mobile they are the
+                separate grid item below, so the photo can sit above them. */}
             <div
-              className="animate-fade-up mt-8 flex flex-wrap items-center gap-4"
+              className="animate-fade-up mt-8 hidden flex-wrap items-center gap-4 lg:flex"
               style={{ animationDelay: "300ms" }}
             >
-              <ButtonLink href={hero.primaryCta.href} size="lg" className="w-full sm:w-auto">
+              <ButtonLink href={hero.primaryCta.href} size="lg">
                 {hero.primaryCta.label}
-                <ArrowRight className="size-4" aria-hidden />
+                <ArrowRight className="size-4 shrink-0" aria-hidden />
               </ButtonLink>
-              <ButtonLink href={hero.secondaryCta.href} size="lg" variant="outline" className="w-full sm:w-auto">
+              <ButtonLink href={hero.secondaryCta.href} size="lg" variant="outline">
                 {hero.secondaryCta.label}
               </ButtonLink>
             </div>
-
           </div>
 
           {/* ── Doctor photo ── */}
-          <div className="animate-fade-up relative mx-auto w-fit lg:mx-0 lg:justify-self-end" style={{ animationDelay: "200ms" }}>
+          <div
+            className="animate-fade-up relative order-2 mx-auto w-fit lg:order-2 lg:mx-0 lg:justify-self-end"
+            style={{ animationDelay: "200ms" }}
+          >
             <div className="absolute -inset-4 rounded-[2.5rem] bg-secondary-200" aria-hidden />
             <div className="relative aspect-[4/5] w-72 overflow-hidden rounded-[2rem] border border-grey-200/70 bg-surface sm:w-80">
               <Image
@@ -83,6 +90,26 @@ export function Hero() {
               <p className="text-lg font-bold text-black">{site.doctor.name}</p>
               <p className="text-sm font-medium text-grey-500">{site.doctor.title}</p>
             </div>
+          </div>
+
+          {/* ── CTAs (mobile & tablet) — sit directly below the photo ── */}
+          <div className="animate-fade-up order-3 flex items-stretch gap-3 lg:hidden">
+            <ButtonLink
+              href={hero.primaryCta.href}
+              size="lg"
+              className="flex-1 px-4 text-center text-sm sm:px-6 sm:text-base"
+            >
+              {hero.primaryCta.label}
+              <ArrowRight className="size-4 shrink-0" aria-hidden />
+            </ButtonLink>
+            <ButtonLink
+              href={hero.secondaryCta.href}
+              size="lg"
+              variant="outline"
+              className="flex-1 px-4 text-center text-sm sm:px-6 sm:text-base"
+            >
+              {hero.secondaryCta.label}
+            </ButtonLink>
           </div>
         </div>
       </Container>

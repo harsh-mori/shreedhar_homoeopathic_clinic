@@ -3,13 +3,12 @@ import { achievements } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { TreatmentGallery } from "@/components/sections/TreatmentGallery";
 
 export function Achievements() {
   return (
     <>
       {/* ── Header ── */}
-      <section className="relative overflow-hidden border-b border-grey-200/70 bg-primaryLight">
+      <section className="relative overflow-hidden border-b border-grey-200/70 bg-primary-light">
         <Leaf className="absolute -right-6 top-4 size-32 rotate-12 text-secondary-100" aria-hidden />
         <Container className="relative py-16 lg:py-20">
           <p className="animate-fade-up mb-4 inline-flex items-center gap-2 rounded-full border border-secondary-200 bg-surface px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-secondary-700">
@@ -26,7 +25,7 @@ export function Achievements() {
       </section>
 
       {/* ── Publications ── */}
-      <section className="border-b border-grey-200/70 bg-primaryLight">
+      <section className="border-b border-grey-200/70 bg-primary-light">
         <Container className="py-16 lg:py-24">
           <div className="flex items-center gap-4">
             <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-secondary-50 text-secondary-700">
@@ -103,9 +102,6 @@ export function Achievements() {
           </div>
         </Container>
       </section>
-
-      {/* ── Before & After gallery ── */}
-      <TreatmentGallery />
 
       {/* ── CTA band ── */}
       <CtaBand />

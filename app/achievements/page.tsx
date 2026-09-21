@@ -3,7 +3,7 @@ import { Achievements } from "@/components/sections/Achievements";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: `Achievements & Research — Homoeopathic Publications | ${site.name}`,
+  title: `Achievements & Research — Homoeopathic Publications`,
   description: `Research, publications and case studies by Dr. Sumant Zankat at ${site.name}, Rajkot. Published papers in homoeopathic journals, treatment results & before-after photos showcasing classical homoeopathy success.`,
   keywords: [
     "homoeopathic research publications",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/achievements" },
   openGraph: {
-    title: `Achievements & Research — Homoeopathic Publications | ${site.name}`,
+    title: `Achievements & Research | ${site.name}`,
     description: `Research, publications and case studies by Dr. Sumant Zankat — published papers in homoeopathic journals.`,
   },
 };

@@ -189,7 +189,7 @@ export function AboutDoctor() {
       </section>
 
       {/* ── Areas of practice ── */}
-      <section className="border-b border-grey-200/70 bg-primaryLight">
+      <section className="border-b border-grey-200/70 bg-primary-light">
         <Container className="py-16 lg:py-24">
           <SectionHeading
             eyebrow="Areas of Practice"
